@@ -1,0 +1,109 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "question": "It was the original Internet, lasting through the ’90s and early 2000s",
+        "choices": [
+          { "id": 0, "text": "Web 1.0", "isCorrect": true },
+          { "id": 1, "text": "Web 2.0", "isCorrect": false },
+          { "id": 2, "text": "Web 3.0", "isCorrect": false },
+          { "id": 3, "text": "Web 0", "isCorrect": false }
+        
+        ]
+      },
+      {
+        "id": 2,
+        "question": "_____ technology allows for complete transparency.",
+        "choices": [
+          { "id": 0, "text": "Crypto", "isCorrect": false },
+          { "id": 1, "text": "Web", "isCorrect": false },
+          { "id": 2, "text": "Blockchain", "isCorrect": true },
+          { "id": 3, "text": "Linux", "isCorrect": false }
+        
+        ]
+      },
+      {
+        "id": 3,
+        "question": "People would have exacting control over their data is:",
+        "choices": [
+          { "id": 0, "text": "Privacy", "isCorrect": true },
+          { "id": 1, "text": "Business", "isCorrect": false },
+          { "id": 2, "text": "Capitalism", "isCorrect": false },
+          { "id": 3, "text": "Allowance", "isCorrect": false }
+        
+        ]
+      },
+      {
+        "id": 4,
+        "question": "What's another name some people use for Web 3.0?",
+        "choices": [
+          { "id": 0, "text": "The Semantic Web", "isCorrect": true },
+          { "id": 1, "text": "The InterWebs", "isCorrect": false },
+          { "id": 2, "text": "WiMax", "isCorrect": false }
+        
+        ]
+      },
+      {
+        "id": 5,
+        "question": "What does API stand for?",
+        "choices": [
+          { "id": 0, "text": "Automatic platform information", "isCorrect": false },
+          { "id": 1, "text": "Application programming interface", "isCorrect": true },
+          { "id": 2, "text": "Analogue partition ideology", "isCorrect": false },
+          { "id": 3, "text": "Automatic programming information", "isCorrect": false }
+        
+        ]
+      },
+      {
+        "id": 6,
+        "question": "The Internet has been around for a few decades, but when was the Web invented?",
+        "choices": [
+          { "id": 0, "text": "1990", "isCorrect": false },
+          { "id": 1, "text": "1987", "isCorrect": false },
+          { "id": 2, "text": "1950", "isCorrect": false },
+          { "id": 3, "text": "1989", "isCorrect": true }
+        
+        ]
+      },
+      {
+        "id": 7,
+        "question": "What is not an attribute of Web 3.0:",
+        "choices": [
+          { "id": 0, "text": "Personalized Search", "isCorrect": true },
+          { "id": 1, "text": "Involution", "isCorrect": false },
+          { "id": 2, "text": "No reasoning", "isCorrect": false },
+          { "id": 3, "text": "Wed in 2D", "isCorrect": false }
+        
+        ]
+      },
+      {
+        "id": 8,
+        "question": "What is metadata?",
+        "choices": [
+          { "id": 0, "text": "The information to help people meet their soul mates", "isCorrect": false },
+          { "id": 1, "text": "The code Web page designers use to build Web sites", "isCorrect": false },
+          { "id": 2, "text": "Invisible info. that describes a Web page to computers", "isCorrect": true }
+        
+        ]
+      },
+      {
+        "id": 9,
+        "question": "What does it mean when we say that Web 3.0 will be contextual?",
+        "choices": [
+          { "id": 0, "text": "Browsers will be in 3-D.", "isCorrect": false },
+          { "id": 1, "text": "The experience will depend where you access the Web.", "isCorrect": false },
+          { "id": 2, "text": "Search engines understand the meaning of a key word.", "isCorrect": true }
+        
+        ]
+      },
+      {
+        "id": 10,
+        "question": "How will Web 3.0 profiles affect the browsing experience for users?",
+        "choices": [
+          { "id": 0, "text": "No two people will have same browsing experience.", "isCorrect": true },
+          { "id": 1, "text": "It won't affect the experience at all.", "isCorrect": false },
+          { "id": 2, "text": "Niche Web sites will lose traffic.", "isCorrect": false }
+        ]
+      }
+    ]
+  }

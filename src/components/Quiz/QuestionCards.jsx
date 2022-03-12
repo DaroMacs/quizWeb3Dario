@@ -1,0 +1,121 @@
+import * as React from 'react';
+import { useState, useEffect } from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { Box, CardActionArea} from '@mui/material';
+import blockImg from '../../images/cubes.jpeg';
+import RadioFormControl from './RadioFormControl';
+import Chip from '@mui/material/Chip';
+import { useTimer } from 'use-timer';
+
+
+
+export default function QuestionCards(
+    {
+        handleDisconnect,
+        dataQuiz,
+        setCurrentQuestion, 
+        currentQuestion, 
+        score, 
+        setScore,
+        setShowFinalResults,
+        answers,
+        setAnswers
+    }) 
+{
+    const [answer, setAnswer] = useState(false);
+    const { time, start, reset, } = useTimer({
+        initialTime: 4,
+        endTime: 0,
+        timerType: 'DECREMENTAL',
+    });
+
+    useEffect(() => {
+        start();
+    }, []);
+    
+
+    useEffect(() => {
+        if(time === 0) {
+            nextClickHandler();
+        }
+    }, [time]);
+    
+
+    const nextClickHandler = () => {
+        const currentSelection = dataQuiz[currentQuestion];
+        const answersObject = { currentSelection, answer };
+        reset();
+        start();
+
+        if(answer.isCorrect) {
+            setScore(score + 1);
+            setAnswer(false);
+        }
+
+        setAnswers([ ...answers, answersObject]);
+
+        if(currentQuestion + 1 < dataQuiz.length) {
+            setCurrentQuestion(currentQuestion + 1);
+        } else {
+            setShowFinalResults(true);
+        }
+    };  
+
+    return (        
+        <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="start"
+            mt={10}
+            alignItems="center"
+            height="100vh"
+        >
+            <Card sx={{ width: 500 }}>
+                <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        height="120"
+                        image={blockImg}
+                        alt="green iguana"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h6" component="div" color="text.primary">
+                            Question {currentQuestion + 1}/{dataQuiz.length}
+                        </Typography>
+                        <Typography variant="h5" color="teal">
+                            {dataQuiz[currentQuestion].question}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+                <RadioFormControl 
+                    currentQuestion = {currentQuestion}
+                    setCurrentQuestion = {setCurrentQuestion}
+                    dataQuiz = {dataQuiz}
+                    score = {score}
+                    setScore = {setScore}
+                    setShowFinalResults = {setShowFinalResults}
+                    setAnswer = {setAnswer}
+                    answers = {answers}
+                    setAnswers = {setAnswers}             
+                />
+                <Box display="flex" flexDirection="row" justifyContent="space-between" p={2}>
+                    <Button  onClick={handleDisconnect} variant="contained" size="small" color="warning" sx={{ textTransform: 'none' }}>
+                        Exit
+                    </Button>
+                    <Typography>Remaining time: {time}s</Typography>
+                    <Button onClick={nextClickHandler} variant="contained" size="small" color="primary" sx={{ textTransform: 'none' }}>
+                        Next 
+                    </Button>
+                </Box>
+            </Card>
+            <Box  mt={2}>
+                <Chip sx={{ fontSize: 16, p: '1.1rem', border: '1px solid white' }} label={`$QUIZ tokens score: ${score}`} color="primary"/>
+            </Box>
+
+        </Box> 
+    );
+}
