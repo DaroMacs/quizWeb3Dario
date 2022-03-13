@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import metamaskImg from '../images/MetaMask_Fox.png';
 
-export default function Navbar({account, connect}) {
+export default function Navbar({connect, truncatedAddress, active}) {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{ marginBottom: '2rem', height: '4rem', backgroundColor: 'rgba(67, 54, 54, 0.4)' }}>
@@ -19,7 +19,7 @@ export default function Navbar({account, connect}) {
                         color="inherit" sx={{ flexGrow: 1, height: '3rem' }}
                     >
                         <img src={metamaskImg} alt="Fox" style={{ height: '40px', marginRight: '1rem' }} />
-                        <Typography>{account}</Typography>
+                        <Typography>{active && truncatedAddress}</Typography>
                     </Button>
                 </Toolbar>
             </AppBar>

@@ -5,6 +5,7 @@ import Quiz from './components/Quiz/Quiz';
 import Background from './components/Background';
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core';
 import { connector } from './config/web3';
+import useTruncatedAddress from './components/customHooks/useTruncatedAddress';
 
 const App = () => {
 
@@ -48,11 +49,14 @@ const App = () => {
         }
     };
 
+    const truncatedAddress = useTruncatedAddress(account);
+
     return (
         <>  
             <Background />
             <Navbar 
-                account = {account}
+                active = {active}
+                truncatedAddress = {truncatedAddress}
                 connect = {connect}
             />
             {isWalletConnected ? (
