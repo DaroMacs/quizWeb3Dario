@@ -8,7 +8,7 @@ import { Box, CardActionArea} from '@mui/material';
 import banner from '../../images/CuTu-blogweb3.builders.hope.to.fix.jpg';
 
 
-export default function Welcome({handleQuizStarted, handleDisconnect}) {
+export default function Welcome({handleQuizStarted, disconnect}) {
     return (
         <Box
             display="flex"
@@ -31,12 +31,16 @@ export default function Welcome({handleQuizStarted, handleDisconnect}) {
                             Welcome to the daily Quiz
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            The Quiz of today is about Web 3.0, so get ready to go deep into the Metaverse
+                            The survey of today is about use of Web, so get ready! :)                
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" mt={1}>
+                            You have 10 seconds per question
+                            One completed at least 5, you&apos;ll see the $Quiz Token reward below the final scores and you&apos;ll get them once summited
                         </Typography>
                     </CardContent>
                 </CardActionArea>
                 <Box display="flex" flexDirection="row" justifyContent="space-between" p={2}>
-                    <Button  onClick={handleDisconnect} variant="contained" size="small" color="warning" sx={{ textTransform: 'none' }}>
+                    <Button  onClick={disconnect} variant="contained" size="small" color="warning" sx={{ textTransform: 'none' }}>
                         I&apos;ll come tomorrow
                     </Button>
                     <Button  onClick={handleQuizStarted} variant="contained" size="small" color="primary" sx={{ textTransform: 'none' }}>

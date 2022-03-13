@@ -9,15 +9,10 @@ import { connector } from './config/web3';
 const App = () => {
 
     const [isWalletConnected, setIsWalletConnected] = useState(false);
-    const {active, activate, account, error} = useWeb3React();
+    const {active, activate, deactivate, account, error} = useWeb3React();
+
     const isUnsupportedChain = error instanceof UnsupportedChainIdError;
 
-
-    const connect = () => {
-        activate(connector);
-    };
-
-    
     useEffect(() => {
         if(active) {
             setIsWalletConnected(true);
@@ -25,6 +20,17 @@ const App = () => {
             setIsWalletConnected(false);
         }
     }, [active]);
+
+    const connect = () => {
+        activate(connector);
+    };
+    
+    const disconnect = () => {
+        const isConfirmed = confirm('Are you sure you want to disconnect your wallet?');
+        if(isConfirmed)deactivate(connector);
+    };
+
+    
 
     const changeNetwork = async ({ setError }) => {
         try {
@@ -47,11 +53,13 @@ const App = () => {
             <Background />
             <Navbar 
                 account = {account}
+                connect = {connect}
             />
             {isWalletConnected ? (
                 <Quiz 
                     isWalletConnected = {isWalletConnected}
                     setIsWalletConnected = {setIsWalletConnected}
+                    disconnect = {disconnect}
                 />
             ):(      
                 <ConnectWallet 
@@ -60,6 +68,7 @@ const App = () => {
                     connect = {connect}
                     isUnsupportedChain = {isUnsupportedChain}
                     changeNetwork = {changeNetwork}
+                    disconnect = {disconnect}
                 />
             )
             }

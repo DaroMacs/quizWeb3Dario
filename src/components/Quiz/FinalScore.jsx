@@ -4,11 +4,14 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
+import ChipCustom from '../../utils/CustomChip';
+import CustomAlert from '../../utils/CustomAlert';
 
-const FinalScore = ({score, dataQuiz, answers, handleDisconnect}) => {
+const FinalScore = ({ answers, disconnect}) => {
     
     const answersObj = answers.map(answer => answer.answer);
-
+    const completedAnswers = answersObj.filter(answer => answer.idAnswer !== 0);
+    console.log(answers);
     return (
 
         <Box
@@ -22,21 +25,18 @@ const FinalScore = ({score, dataQuiz, answers, handleDisconnect}) => {
             <Card sx={{ width: 600 }} >
                 
                 <CardContent >
-                    <Typography gutterBottom variant="h4" component="div" color="text.primary">
-                        Score Results 
-                    </Typography>
-                    <Typography variant="h5" color="teal">
-                        Points {score} out of {dataQuiz.length}
+                    <Typography gutterBottom variant="h4" component="div" color="teal">
+                        Results 
                     </Typography>
                     <Typography variant="h6" color="gray">
-                        Your answers:
+                        Answered {completedAnswers.length}/{answersObj.length}:
                     </Typography>
 
                     {answersObj.map((answer, i) => (
                         <Typography display="flex" variant="h6" m=".3rem 2rem" color="black" textAlign="left" sx={{ fontSize: '16px' }} key={i}>
                             <Typography variant="p" fontWeight='bold' >Q{i + 1}:&nbsp;</Typography>
                             {answer.answerSelected !== undefined ? (
-                                `${answer.answerSelected} - ${answer.isCorrect ? 'Correct' : 'Incorrect'}`
+                                answer.answerSelected
                             ) : (
                                 'No answer selected')}
                         </Typography>
@@ -44,14 +44,24 @@ const FinalScore = ({score, dataQuiz, answers, handleDisconnect}) => {
                 </CardContent>
                         
                 <Box display="flex" flexDirection="column" justifyContent="center" pb={2} paddingX={2}>
-                    <Button variant="contained" size="small" color="primary" sx={{ textTransform: 'none', marginBottom: '0.5rem' }}>
-                        Submit
-                    </Button>
-                    <Button  onClick={handleDisconnect} variant="contained" size="small" color="warning" sx={{ textTransform: 'none' }}>
+                    {completedAnswers.length >= 5 ? (
+                        <>
+                            <CustomAlert _severity={'success'} message={'Congratulations, you have completed the survey, click submit to get your token!'} />
+                            <Button variant="contained" size="small" color="primary" sx={{ textTransform: 'none', marginBottom: '0.5rem' }}>
+                                Submit
+                            </Button>
+                        </>
+                    ) : (
+                        
+                        <CustomAlert message={'Sorry, you should answer at least 5 questions in order to get a $QUIZ token.'} />
+                    )}
+                    
+                    <Button  onClick={disconnect} variant="contained" size="small" color="warning" sx={{ textTransform: 'none' }}>
                         Exit
                     </Button>
                 </Box>
             </Card>
+            <ChipCustom score={completedAnswers.length >= 5 ? 1 : 0}/>
         </Box>
     );
 };

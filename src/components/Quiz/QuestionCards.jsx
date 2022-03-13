@@ -8,14 +8,13 @@ import Typography from '@mui/material/Typography';
 import { Box, CardActionArea} from '@mui/material';
 import blockImg from '../../images/cubes.jpeg';
 import RadioFormControl from './RadioFormControl';
-import Chip from '@mui/material/Chip';
 import { useTimer } from 'use-timer';
+import ChipCustom from '../../utils/CustomChip';
 
 
 
 export default function QuestionCards(
     {
-        handleDisconnect,
         dataQuiz,
         setCurrentQuestion, 
         currentQuestion, 
@@ -23,10 +22,11 @@ export default function QuestionCards(
         setScore,
         setShowFinalResults,
         answers,
-        setAnswers
+        setAnswers,
+        disconnect
     }) 
 {
-    const [answer, setAnswer] = useState(false);
+    const [answer, setAnswer] = useState({});
     const { time, start, reset, } = useTimer({
         initialTime: 4,
         endTime: 0,
@@ -46,23 +46,29 @@ export default function QuestionCards(
     
 
     const nextClickHandler = () => {
-        const currentSelection = dataQuiz[currentQuestion];
-        const answersObject = { currentSelection, answer };
         reset();
-        start();
+        start();     
+        const currentSelection = dataQuiz[currentQuestion];
+        if(Object.keys(answer).length === 0){
+            const answerUserObject = {
+                currentSelection, 
+                answer: {
+                    idAnswer: 0,
+                    answerSelected: 'No Selected'
+                }};
 
-        if(answer.isCorrect) {
-            setScore(score + 1);
-            setAnswer(false);
+            setAnswers([ ...answers, answerUserObject]);
+        } else {
+            const answersObject = { currentSelection, answer };
+            setAnswers([ ...answers, answersObject]);
         }
-
-        setAnswers([ ...answers, answersObject]);
 
         if(currentQuestion + 1 < dataQuiz.length) {
             setCurrentQuestion(currentQuestion + 1);
         } else {
             setShowFinalResults(true);
         }
+        setAnswer({});
     };  
 
     return (        
@@ -103,7 +109,7 @@ export default function QuestionCards(
                     setAnswers = {setAnswers}             
                 />
                 <Box display="flex" flexDirection="row" justifyContent="space-between" p={2}>
-                    <Button  onClick={handleDisconnect} variant="contained" size="small" color="warning" sx={{ textTransform: 'none' }}>
+                    <Button  onClick={disconnect} variant="contained" size="small" color="warning" sx={{ textTransform: 'none' }}>
                         Exit
                     </Button>
                     <Typography>Remaining time: {time}s</Typography>
@@ -112,9 +118,7 @@ export default function QuestionCards(
                     </Button>
                 </Box>
             </Card>
-            <Box  mt={2}>
-                <Chip sx={{ fontSize: 16, p: '1.1rem', border: '1px solid white' }} label={`$QUIZ tokens score: ${score}`} color="primary"/>
-            </Box>
+            <ChipCustom score={0}/>
 
         </Box> 
     );

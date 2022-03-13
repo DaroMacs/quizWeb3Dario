@@ -1,109 +1,71 @@
 {
+    
+  "survey": {
+    "id": 1,
     "questions": [
       {
         "id": 1,
-        "question": "It was the original Internet, lasting through the ’90s and early 2000s",
+        "question": "What is your age group?",
         "choices": [
-          { "id": 0, "text": "Web 1.0", "isCorrect": true },
-          { "id": 1, "text": "Web 2.0", "isCorrect": false },
-          { "id": 2, "text": "Web 3.0", "isCorrect": false },
-          { "id": 3, "text": "Web 0", "isCorrect": false }
+          { "id": 10, "text": "18-23" },
+          { "id": 11, "text": "24-28" },
+          { "id": 12, "text": "28-35" },
+          { "id": 13, "text": "+35" }
         
         ]
       },
       {
         "id": 2,
-        "question": "_____ technology allows for complete transparency.",
+        "question": "What type of vehicle do you own?",
         "choices": [
-          { "id": 0, "text": "Crypto", "isCorrect": false },
-          { "id": 1, "text": "Web", "isCorrect": false },
-          { "id": 2, "text": "Blockchain", "isCorrect": true },
-          { "id": 3, "text": "Linux", "isCorrect": false }
+          { "id": 20, "text": "Van" },
+          { "id": 21, "text": "SUV" },
+          { "id": 22, "text": "Sedan" }
         
         ]
       },
       {
         "id": 3,
-        "question": "People would have exacting control over their data is:",
+        "question": "Do you own your own house?",
         "choices": [
-          { "id": 0, "text": "Privacy", "isCorrect": true },
-          { "id": 1, "text": "Business", "isCorrect": false },
-          { "id": 2, "text": "Capitalism", "isCorrect": false },
-          { "id": 3, "text": "Allowance", "isCorrect": false }
+          { "id": 30, "text": "Yes" },
+          { "id": 31, "text": "No" }
         
         ]
       },
       {
         "id": 4,
-        "question": "What's another name some people use for Web 3.0?",
+        "question": "What device do you use to access internet?",
         "choices": [
-          { "id": 0, "text": "The Semantic Web", "isCorrect": true },
-          { "id": 1, "text": "The InterWebs", "isCorrect": false },
-          { "id": 2, "text": "WiMax", "isCorrect": false }
+          { "id": 40, "text": "Smartphone" },
+          { "id": 41, "text": "Laptop" },
+          { "id": 42, "text": "PC" },
+          { "id": 43, "text": "Tablet" }
         
         ]
       },
       {
         "id": 5,
-        "question": "What does API stand for?",
+        "question": "How many hours you spent on internet per day?",
         "choices": [
-          { "id": 0, "text": "Automatic platform information", "isCorrect": false },
-          { "id": 1, "text": "Application programming interface", "isCorrect": true },
-          { "id": 2, "text": "Analogue partition ideology", "isCorrect": false },
-          { "id": 3, "text": "Automatic programming information", "isCorrect": false }
+          { "id": 50, "text": "Less that 1 hours" },
+          { "id": 51, "text": "2 hours" },
+          { "id": 52, "text": "3 hours" },
+          { "id": 53, "text": "4 hours" }
         
         ]
       },
       {
         "id": 6,
-        "question": "The Internet has been around for a few decades, but when was the Web invented?",
+        "question": "How much per month do you buy throughout e-commerce (e.g. Amazon)?",
         "choices": [
-          { "id": 0, "text": "1990", "isCorrect": false },
-          { "id": 1, "text": "1987", "isCorrect": false },
-          { "id": 2, "text": "1950", "isCorrect": false },
-          { "id": 3, "text": "1989", "isCorrect": true }
+          { "id": 60, "text": "less than $100" },
+          { "id": 61, "text": "between $101 and $300" },
+          { "id": 62, "text": "between $301 and $500" },
+          { "id": 63, "text": "mora than $500" }
         
-        ]
-      },
-      {
-        "id": 7,
-        "question": "What is not an attribute of Web 3.0:",
-        "choices": [
-          { "id": 0, "text": "Personalized Search", "isCorrect": true },
-          { "id": 1, "text": "Involution", "isCorrect": false },
-          { "id": 2, "text": "No reasoning", "isCorrect": false },
-          { "id": 3, "text": "Wed in 2D", "isCorrect": false }
-        
-        ]
-      },
-      {
-        "id": 8,
-        "question": "What is metadata?",
-        "choices": [
-          { "id": 0, "text": "The information to help people meet their soul mates", "isCorrect": false },
-          { "id": 1, "text": "The code Web page designers use to build Web sites", "isCorrect": false },
-          { "id": 2, "text": "Invisible info. that describes a Web page to computers", "isCorrect": true }
-        
-        ]
-      },
-      {
-        "id": 9,
-        "question": "What does it mean when we say that Web 3.0 will be contextual?",
-        "choices": [
-          { "id": 0, "text": "Browsers will be in 3-D.", "isCorrect": false },
-          { "id": 1, "text": "The experience will depend where you access the Web.", "isCorrect": false },
-          { "id": 2, "text": "Search engines understand the meaning of a key word.", "isCorrect": true }
-        
-        ]
-      },
-      {
-        "id": 10,
-        "question": "How will Web 3.0 profiles affect the browsing experience for users?",
-        "choices": [
-          { "id": 0, "text": "No two people will have same browsing experience.", "isCorrect": true },
-          { "id": 1, "text": "It won't affect the experience at all.", "isCorrect": false },
-          { "id": 2, "text": "Niche Web sites will lose traffic.", "isCorrect": false }
         ]
       }
     ]
   }
+}

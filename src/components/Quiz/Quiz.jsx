@@ -4,7 +4,7 @@ import Welcome from './Welcome';
 import quizJson from '../../data/quiz.json';
 import FinalScore from './FinalScore';
 
-const Quiz = ({isWalletConnected, setIsWalletConnected, account}) => {
+const Quiz = ({isWalletConnected, setIsWalletConnected, account, disconnect}) => {
 
     const [isQuizStarted, setIsQuizStarted] = useState(false);
     const [dataQuiz, setDataQuiz] = useState([]);
@@ -12,20 +12,15 @@ const Quiz = ({isWalletConnected, setIsWalletConnected, account}) => {
     const [showFinalResults, setShowFinalResults] = useState(false);
     const [score, setScore] = useState(0);
     const [answers, setAnswers] = useState([]);
-
-    const handleDisconnect = () => {
-        setIsWalletConnected(false);
-    };
     
     const handleQuizStarted = () => {
         setIsQuizStarted(true);
     };
 
     useEffect(() => {
-        const data = quizJson.questions;
+        const data = quizJson.survey.questions;
         setDataQuiz(data);
-    }, []);
-    
+    }, []);    
 
     return (
         <>
@@ -36,11 +31,10 @@ const Quiz = ({isWalletConnected, setIsWalletConnected, account}) => {
                         dataQuiz = {dataQuiz}   
                         score = {score}
                         answers = {answers}
-                        handleDisconnect = {handleDisconnect}
+                        disconnect = {disconnect}
                     />
                 ) : (<QuestionCards 
                     setIsQuizStarted = {setIsQuizStarted}
-                    handleDisconnect = {handleDisconnect}
                     currentQuestion = {currentQuestion}
                     setCurrentQuestion = {setCurrentQuestion}
                     dataQuiz = {dataQuiz}
@@ -49,16 +43,17 @@ const Quiz = ({isWalletConnected, setIsWalletConnected, account}) => {
                     setShowFinalResults = {setShowFinalResults}
                     answers = {answers}
                     setAnswers = {setAnswers}
+                    disconnect = {disconnect}
                 />)
             ): (
                 <Welcome 
                     isWalletConnected = {isWalletConnected}
                     setIsWalletConnected = {setIsWalletConnected}
-                    handleDisconnect = {handleDisconnect}
                     handleQuizStarted = {handleQuizStarted}
                     isQuizStarted = {isQuizStarted}
                     setIsQuizStarted = {setIsQuizStarted}
                     account = {account}
+                    disconnect = {disconnect}
                 />
             )}
         </>

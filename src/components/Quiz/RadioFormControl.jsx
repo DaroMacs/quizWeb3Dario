@@ -13,14 +13,17 @@ const RadioFormControl = (
     }
 ) => {
 
-    const handleisCorrect = (isCorrect, answerSelected) => {
-           
-        const answerUserObject = {
-            answerSelected,
-            isCorrect
-        };
+    const handleRadioButton = (idAnswer, answerSelected) => {
+        console.log(idAnswer);
+        console.log(answerSelected);
 
+        const answerUserObject = {
+            idAnswer,
+            answerSelected
+        };
+        
         setAnswer(answerUserObject);
+        // setAnswer({idAnswer: 0, answerSelected: 'No answer selected'});
     };
 
 
@@ -38,7 +41,7 @@ const RadioFormControl = (
                             value={choice.text} 
                             control={<Radio />} 
                             label={choice.text}
-                            onChange={(e) => handleisCorrect(choice.isCorrect, e.target.value)}
+                            onChange={(e) => handleRadioButton(choice.id, e.target.value)}
                         />                            
                     );})}
             </RadioGroup>
