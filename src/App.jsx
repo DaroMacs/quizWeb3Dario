@@ -9,17 +9,14 @@ import { connector } from './config/web3';
 const App = () => {
 
     const [isWalletConnected, setIsWalletConnected] = useState(false);
-    const {active, activate, account, error, chainId} = useWeb3React();
-
+    const {active, activate, account, error} = useWeb3React();
     const isUnsupportedChain = error instanceof UnsupportedChainIdError;
 
-    console.log(chainId);
 
     const connect = () => {
         activate(connector);
     };
 
-    console.log(active);
     
     useEffect(() => {
         if(active) {
@@ -28,7 +25,22 @@ const App = () => {
             setIsWalletConnected(false);
         }
     }, [active]);
-    
+
+    const changeNetwork = async ({ setError }) => {
+        try {
+            if (!window.ethereum) throw new Error('No crypto wallet found');
+            await window.ethereum.request({
+                method: 'wallet_switchEthereumChain',
+                params: [
+                    {
+                        chainId: '0x3', // hex of Ropsten
+                    }
+                ]
+            });
+        } catch (err) {
+            setError(err.message);
+        }
+    };
 
     return (
         <>  
@@ -47,6 +59,7 @@ const App = () => {
                     setIsWalletConnected = {setIsWalletConnected}
                     connect = {connect}
                     isUnsupportedChain = {isUnsupportedChain}
+                    changeNetwork = {changeNetwork}
                 />
             )
             }
