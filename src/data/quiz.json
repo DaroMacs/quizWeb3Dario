@@ -26,7 +26,7 @@
       },
       {
         "id": 3,
-        "question": "Do you own your own house?",
+        "question": "Do you have your own house?",
         "choices": [
           { "id": 30, "text": "Yes" },
           { "id": 31, "text": "No" }
@@ -46,9 +46,9 @@
       },
       {
         "id": 5,
-        "question": "How many hours you spent on internet per day?",
+        "question": "How many hours do you spend on internet per day?",
         "choices": [
-          { "id": 50, "text": "Less that 1 hours" },
+          { "id": 50, "text": "Less that 1 hour" },
           { "id": 51, "text": "2 hours" },
           { "id": 52, "text": "3 hours" },
           { "id": 53, "text": "4 hours" }
@@ -62,7 +62,7 @@
           { "id": 60, "text": "less than $100" },
           { "id": 61, "text": "between $101 and $300" },
           { "id": 62, "text": "between $301 and $500" },
-          { "id": 63, "text": "mora than $500" }
+          { "id": 63, "text": "more than $500" }
         
         ]
       }
