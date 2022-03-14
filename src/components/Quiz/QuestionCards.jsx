@@ -28,7 +28,7 @@ export default function QuestionCards(
 {
     const [answer, setAnswer] = useState({});
     const { time, start, reset, } = useTimer({
-        initialTime: 4,
+        initialTime: 5,
         endTime: 0,
         timerType: 'DECREMENTAL',
     });
@@ -86,7 +86,7 @@ export default function QuestionCards(
                         component="img"
                         height="120"
                         image={blockImg}
-                        alt="green iguana"
+                        alt="block"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h6" component="div" color="text.primary">
@@ -112,7 +112,7 @@ export default function QuestionCards(
                     <Button  onClick={disconnect} variant="contained" size="small" color="warning" sx={{ textTransform: 'none' }}>
                         Exit
                     </Button>
-                    <Typography>Remaining time: {time}s</Typography>
+                    <Typography fontWeight='bold' color='teal'>Remaining time: {time}s</Typography>
                     <Button onClick={nextClickHandler} variant="contained" size="small" color="primary" sx={{ textTransform: 'none' }}>
                         Next 
                     </Button>

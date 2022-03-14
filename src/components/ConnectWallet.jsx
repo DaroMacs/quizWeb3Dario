@@ -12,11 +12,11 @@ const ConnectWallet = ({connect, isUnsupportedChain, changeNetwork}) => {
         <Container>
             <Box display="flex" flexDirection="column" mt={10} alignItems= 'center' position="absolute" left={0} right={0}>
                 <Button onClick={isUnsupportedChain ? changeNetwork : connect} variant="contained" sx={{ textTransform: 'none' }} color={isUnsupportedChain ? 'warning' : 'primary'}>
-                    {isUnsupportedChain ? 'Connect to Ropsten' : 'Connect Wallet'}
+                    {isUnsupportedChain ? 'Connect to Rinkeby' : 'Connect Wallet'}
                 </Button>
                 {isUnsupportedChain && 
                     (
-                        <CustomAlert message={'Oops, it seems you are connected to Metamask but not to the right network, click the button to connect to Ropsten.'}/> 
+                        <CustomAlert message={'Oops, it seems you are connected to Metamask but not to the right network, click the button to connect to Rinkeby.'}/> 
                     )}
                 <motion.img
                     variants={foxAnimation}

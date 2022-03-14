@@ -33,7 +33,7 @@ export default function Welcome({handleQuizStarted, disconnect}) {
                             The survey of today is about use of Web, so get ready! :)                
                         </Typography>
                         <Typography variant="body2" color="text.secondary" mt={1}>
-                            You have 10 seconds per question
+                            You have 5 seconds per question
                             One completed at least 5, you&apos;ll see the $Quiz Token reward below the final scores and you&apos;ll get them once summited
                         </Typography>
                     </CardContent>
