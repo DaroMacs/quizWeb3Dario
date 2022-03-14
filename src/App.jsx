@@ -28,8 +28,8 @@ const App = () => {
     
     const disconnect = () => {
         const isConfirmed = confirm('Are you sure you want to disconnect your wallet?');
-        if(isConfirmed)deactivate(connector);
-        location.reload();
+        if(isConfirmed) {deactivate(connector);
+            location.reload();}
     };
 
     
