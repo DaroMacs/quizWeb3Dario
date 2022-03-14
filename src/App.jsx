@@ -29,6 +29,7 @@ const App = () => {
     const disconnect = () => {
         const isConfirmed = confirm('Are you sure you want to disconnect your wallet?');
         if(isConfirmed)deactivate(connector);
+        location.reload();
     };
 
     
@@ -40,7 +41,7 @@ const App = () => {
                 method: 'wallet_switchEthereumChain',
                 params: [
                     {
-                        chainId: '0x3', // hex of Ropsten
+                        chainId: '0x4', // hex of Ropsten
                     }
                 ]
             });

@@ -6,12 +6,17 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import ChipCustom from '../../utils/CustomChip';
 import CustomAlert from '../../utils/CustomAlert';
+import QuizSolMethods from '../../config/web3/QuizSolMethods';
+
 
 const FinalScore = ({ answers, disconnect}) => {
-    
-    const answersObj = answers.map(answer => answer.answer);
+
+   
+    const answersObj = answers.map(answer => answer.answer);     
     const completedAnswers = answersObj.filter(answer => answer.idAnswer !== 0);
-    console.log(answers);
+    
+    const answersToContract = completedAnswers.map(answer => answer.idAnswer);
+    console.log(answersToContract);
     return (
 
         <Box
@@ -46,10 +51,7 @@ const FinalScore = ({ answers, disconnect}) => {
                 <Box display="flex" flexDirection="column" justifyContent="center" pb={2} paddingX={2}>
                     {completedAnswers.length >= 5 ? (
                         <>
-                            <CustomAlert _severity={'success'} message={'Congratulations, you have completed the survey, click submit to get your token!'} />
-                            <Button variant="contained" size="small" color="primary" sx={{ textTransform: 'none', marginBottom: '0.5rem' }}>
-                                Submit
-                            </Button>
+                            <QuizSolMethods answersToContract={answersToContract}/>
                         </>
                     ) : (
                         

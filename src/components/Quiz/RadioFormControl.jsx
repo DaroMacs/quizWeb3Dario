@@ -14,8 +14,6 @@ const RadioFormControl = (
 ) => {
 
     const handleRadioButton = (idAnswer, answerSelected) => {
-        console.log(idAnswer);
-        console.log(answerSelected);
 
         const answerUserObject = {
             idAnswer,
@@ -23,7 +21,6 @@ const RadioFormControl = (
         };
         
         setAnswer(answerUserObject);
-        // setAnswer({idAnswer: 0, answerSelected: 'No answer selected'});
     };
 
 

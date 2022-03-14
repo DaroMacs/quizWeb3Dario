@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import { Box, CardActionArea} from '@mui/material';
 import banner from '../../images/CuTu-blogweb3.builders.hope.to.fix.jpg';
 
-
 export default function Welcome({handleQuizStarted, disconnect}) {
     return (
         <Box
