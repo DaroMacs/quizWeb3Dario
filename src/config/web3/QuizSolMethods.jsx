@@ -79,7 +79,7 @@ const quizSolMethods = ({answersToContract}) => {
                 <CustomAlert _severity={'success'} message={'Congratulations, you submitted your results and we have added 1 ether to your balance!'} />
                 
             )}
-            <Typography variant='h5' fontSize='20px'>Your $QUIZ toke balance: 
+            <Typography variant='h5' fontSize='20px'>Your $QUIZ token balance: 
                 <Typography fontSize='25px' fontWeight='bold' mb='1rem' color='teal'>
                     {balanceOfAccount}
                     <img src={EthIcon} alt="ether" style={{ height: '20px' }} />
