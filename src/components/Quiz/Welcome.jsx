@@ -34,7 +34,7 @@ export default function Welcome({handleQuizStarted, disconnect}) {
                         </Typography>
                         <Typography variant="body2" color="text.secondary" mt={1}>
                             You have 5 seconds per question
-                            One completed at least 5, you&apos;ll see the $Quiz Token reward below the final scores and you&apos;ll get them once summited
+                            once completed at least 5, you&apos;ll see the $Quiz Token reward below the final scores and you&apos;ll get it once summited
                         </Typography>
                     </CardContent>
                 </CardActionArea>
